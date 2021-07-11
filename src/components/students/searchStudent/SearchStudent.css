@@ -1,0 +1,10 @@
+.search-bar {
+     width: 90%;
+     height: 30px;
+     padding: 5px;
+     margin: 20px auto;
+     direction: rtl;
+     background: transparent;
+     border: none !important;
+     border-bottom: 2px solid rgba(2, 129, 40, 0.767) !important;
+}

@@ -1,0 +1,40 @@
+.students {
+     width: 80%;
+     margin: 20px auto;
+     border: 1px solid #eedb2c93;
+     box-shadow: 0 2px 3px #474001b6;
+     background-color: #eedb2c93;
+     text-align: center;
+     padding-bottom: 20px;
+     border-radius: 30px;
+}
+.students label {
+     display: block;
+     margin: 10px auto;
+     text-align: center;
+     font-weight: bold;
+}
+.students input {
+     width: 80%;
+     height: 30px;
+     border-radius: 5px;
+     padding: 5px;
+     direction: rtl;
+     background-color: #f8f8f88c;
+}
+input[type="number"],
+input[type="email"] {
+     direction: ltr;
+}
+.student-section {
+     display: flex;
+     flex-flow: row wrap;
+     justify-content: center;
+     width: 80%;
+     margin: auto;
+}
+@media (min-width: 500px) {
+     .students {
+          width: 450px;
+     }
+}

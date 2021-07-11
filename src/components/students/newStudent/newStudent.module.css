@@ -1,0 +1,30 @@
+.NewPost {
+     width: 80%;
+     margin: 20px auto;
+     border: 1px solid #eedb2c93;
+     box-shadow: 0 2px 3px #474001b6;
+     background-color: #eedb2c93;
+     text-align: center;
+     border-radius: 30px;
+}
+
+.NewPost label {
+     display: block;
+     margin: 10px auto;
+     text-align: center;
+     font-weight: bold;
+}
+
+.NewPost input {
+     background: transparent;
+     display: block;
+     direction: rtl;
+     width: 80%;
+     box-sizing: border-box;
+     border: none;
+     border-bottom: 2px solid rgba(2, 129, 40, 0.767);
+     outline: none;
+     font: inherit;
+     margin: 15px auto;
+     height: 35px;
+}
