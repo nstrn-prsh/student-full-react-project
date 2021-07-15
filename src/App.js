@@ -3,6 +3,8 @@ import Students from "./components/students/Students";
 import Button from "./components/UI/button/Button";
 import NewStudent from "./components/students/newStudent/NewStudent";
 import SearchStudent from "./components/students/searchStudent/SearchStudent";
+import Toolbar from "./components/Header/Toolbar/Toolbar";
+import SideDrawer from "./components/Header/SideDrawer/SideDrawer";
 
 const App = () => {
      const [studentsState, setStudents] = useState([]);
@@ -29,11 +31,12 @@ const App = () => {
 
      return (
           <div className='App'>
+               <SideDrawer />
+               <Toolbar />
                <NewStudent
                     studentsState={studentsState}
                     setStudents={setStudents}
                />
-
                <SearchStudent
                     inputEl={inputEl}
                     studentsState={studentsState}
