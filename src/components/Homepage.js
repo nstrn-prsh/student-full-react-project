@@ -1,7 +1,7 @@
 import { useState, useRef, Fragment } from "react";
-import Students from "../students/Students";
-import Button from "./button/Button";
-import SearchStudent from "../students/searchStudent/SearchStudent";
+import Students from "./students/Students";
+import Button from "./UI/button/Button";
+import SearchStudent from "./students/searchStudent/SearchStudent";
 
 const HomePage = (props) => {
      const [studentsState, setStudents] = useState([]);

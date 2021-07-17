@@ -2,32 +2,27 @@ import Button from "../../UI/button/Button";
 import { memo } from "react";
 import PropTypes from "prop-types";
 import "./student.css";
+import { Link } from "react-router-dom";
 
 const Student = (props) => {
-     const { nameChanged, id, name, classNumber, phoneNumber, email, deleted } =
-          props;
+     const { id, name, classNumber, phoneNumber, email, deleted } = props;
 
      return (
           <div className='students'>
                <label>شماره دانش آموزی :{id}</label>
-               <hr />
-
-               <label>نام و نام خانوادگی</label>
-               <input type='text' value={name} onChange={nameChanged} />
-
-               <label>کلاس</label>
-               <input type='text' value={classNumber} />
-
-               <label>شماره تلفن</label>
-               <input type='number' value={phoneNumber} />
-
-               <label>ایمیل</label>
-               <input type='email' value={email} />
-
-               <label>
+               <label>نام و نام خانوادگی:{name}</label>
+               <label>کلاس:{classNumber}</label>
+               <label>شماره تلفن:{phoneNumber}</label>
+               <label>ایمیل:{email}</label>
+               <label
+               // style={{display:"flex"}}
+               >
                     <Button btnType='danger' clicked={deleted}>
                          حذف
                     </Button>
+                    <Link to={"/student/"+props.id}>
+                         <Button btnType='success'>ویرایش</Button>
+                    </Link>
                </label>
           </div>
      );

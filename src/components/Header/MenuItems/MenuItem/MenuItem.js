@@ -1,15 +1,20 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./MenuItem.css";
 
 const MenuItem = (props) => {
-     let classes = [];
-     if (props.active) classes.push("active");
-
      return (
           <li className='MenuItem'>
-               <Link to={props.link} className={classes}>
+               <NavLink
+                    to={props.link}
+                    activeClassName='active'
+                    activeStyle={{
+                         color: "rgba(2, 129, 40, 0.767)",
+                         cursor: "pointer",
+                    }}
+                    exact
+               >
                     {props.children}
-               </Link>
+               </NavLink>
           </li>
      );
 };

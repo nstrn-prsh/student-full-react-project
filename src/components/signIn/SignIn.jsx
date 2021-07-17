@@ -1,5 +1,5 @@
-import reactappLogo from "../../../assets/images/reactapp-logo.png";
-import Button from "../../UI/button/Button";
+import reactappLogo from "../../assets/images/reactapp-logo.png";
+import Button from "../UI/button/Button";
 import "./signIn.css";
 
 const SignIn = (props) => (

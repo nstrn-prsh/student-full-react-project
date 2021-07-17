@@ -1,14 +1,11 @@
-import Button from "../../UI/button/button";
+import Button from "../../UI/button/Button";
 import "./editStudent.css";
 
 const EditStudent = (props) => {
-     // useEffect(()=>{
-     //     console.log(props.match.params);
-     // },[])
-
      const editStudent = () => {
           alert("successful");
-          //fetch(http://192.168.121.19/editstudent.php?id=studentid)
+          // console.log(props.match.params.studentId);
+          //fetch(http://192.168.121.19/editstudent.php?id=studentId)
      };
 
      return (
@@ -28,4 +25,5 @@ const EditStudent = (props) => {
           </div>
      );
 };
+
 export default EditStudent;

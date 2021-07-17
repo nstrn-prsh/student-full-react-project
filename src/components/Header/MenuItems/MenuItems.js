@@ -4,7 +4,7 @@ import MenuItem from "./MenuItem/MenuItem";
 const MenuItems = () => {
      return (
           <ul className='MenuItems'>
-               <MenuItem link='/' active>
+               <MenuItem link='/'>
                     صفحه اصلی
                </MenuItem>
                <MenuItem

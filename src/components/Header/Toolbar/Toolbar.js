@@ -4,8 +4,8 @@ import Logo from "../logo/Logo";
 import MenuItems from "../MenuItems/MenuItems";
 import Button from "../../../components/UI/button/Button";
 import Modal from "../../../components/UI/modal/Modal";
-import SignIn from "../../../components/user/signIn/SignIn";
 import SideDrawer from "../SideDrawer/SideDrawer";
+import SignIn from './../../signIn/SignIn';
 
 const Toolbar = (props) => {
      const [showModal, setShowModal] = useState(false);

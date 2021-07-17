@@ -13,6 +13,7 @@
      margin: 10px auto;
      text-align: center;
      font-weight: bold;
+     direction: rtl;
 }
 .students input {
      width: 80%;
