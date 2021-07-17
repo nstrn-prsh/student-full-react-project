@@ -20,9 +20,11 @@ const Student = (props) => {
                     <Button btnType='danger' clicked={deleted}>
                          حذف
                     </Button>
-                    <Link to={"/student/"+props.id}>
-                         <Button btnType='success'>ویرایش</Button>
-                    </Link>
+                    {/* <Link to={"/student/"+props.id}> */}
+                    <Button btnType='success' clicked={props.edited}>
+                         ویرایش
+                    </Button>
+                    {/* </Link> */}
                </label>
           </div>
      );

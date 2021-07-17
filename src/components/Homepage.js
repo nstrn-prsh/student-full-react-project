@@ -27,7 +27,6 @@ const HomePage = (props) => {
      };
 
      const edited = (id) => {
-          //console.log(props);
           //props.history.push({pathname:'/student/'+id});
           props.history.push("/student/" + id);
      };

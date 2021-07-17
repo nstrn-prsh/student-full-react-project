@@ -1,26 +1,49 @@
 import Toolbar from "./components/Header/Toolbar/Toolbar";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import HomePage from "./components/Homepage";
-import AddStudent from "./components/students/newStudent/AddStudent";
 import EditStudent from "./components/students/newStudent/EditStudent";
+import { lazy, Suspense } from "react";
+
+// new: react lazy load
+const AddStudent = lazy(() =>
+     import("./components/students/newStudent/AddStudent")
+);
 
 const App = () => {
+     // const [auth] = useState(true);
+
      return (
           <Router>
                <div className='App'>
                     <Toolbar />
                     <div style={{ marginTop: "70px" }}>
-                         <Route path='/' exact component={HomePage} />
-                         <Route
-                              path='/add-student'
-                              exact
-                              component={AddStudent}
-                         />
-                         <Route
-                              path='/student/:studentId'
-                              exact
-                              component={EditStudent}
-                         />
+                         <Switch>
+                              <Route path='/' exact component={HomePage} />
+                              {/* {auth ? (
+                                   <Fragment> */}
+                              <Route
+                                   path='/add-student'
+                                   exact
+                                   render={() => (
+                                        <Suspense fallback={<p>loading....</p>}>
+                                             {/* AddStudent */}
+                                        </Suspense>
+                                   )}
+                              />
+                              <Route
+                                   path='/student/:studentId'
+                                   exact
+                                   component={EditStudent}
+                              />
+                              {/* </Fragment>
+                              ) : null}
+                              <Redirect to='/' />
+                     */}
+                              <Route
+                                   path='*'
+                                   render={() => <h1>not found 404</h1>}
+                              />
+                         </Switch>
                     </div>
                </div>
           </Router>

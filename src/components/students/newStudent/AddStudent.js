@@ -9,6 +9,13 @@ const AddStudent = (props) => {
      const [studentEmail, setStudentEmail] = useState("");
      const [result, setResult] = useState(false);
 
+     // useEffect(() => {
+     //      console.log(props);
+     //      if (!auth) {
+     //           props.history.replace("/");
+     //      }
+     // });
+
      const studentNameHandler = (event) => {
           setStudentName(event.target.value);
      };
@@ -29,7 +36,7 @@ const AddStudent = (props) => {
           alert("student added");
           //props.history.push('/');
           props.history.replace("/");
-          //setResult(true)
+          // setResult(true)
      };
 
      let redirect = null;
