@@ -1,68 +1,17 @@
-import { useState, useRef } from "react";
-import Students from "./components/students/Students";
-import Button from "./components/UI/button/Button";
-import NewStudent from "./components/students/newStudent/NewStudent";
-import SearchStudent from "./components/students/searchStudent/SearchStudent";
 import Toolbar from "./components/Header/Toolbar/Toolbar";
-import SideDrawer from "./components/Header/SideDrawer/SideDrawer";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import HomePage from "./components/UI/Homepage";
+import AddStudent from "./components/students/newStudent/AddStudent";
 
 const App = () => {
-     const [studentsState, setStudents] = useState([]);
-     const [toggle, setToggle] = useState(false);
-
-     const inputEl = useRef(null);
-
-     const nameChangeHandler = (event, id) => {
-          const studentIndex = studentsState.findIndex(
-               (student) => student.id === id
-          );
-          const student = { ...studentsState[studentIndex] };
-          student.name = event.target.value;
-          const students = [...studentsState];
-          students[studentIndex] = student;
-          setStudents(students);
-     };
-
-     const deleteStudent = (index) => {
-          const students = [...studentsState];
-          students.splice(index, 1);
-          setStudents(students);
-     };
-
      return (
-          <div className='App'>
-               <SideDrawer />
-               <Toolbar />
-               <NewStudent
-                    studentsState={studentsState}
-                    setStudents={setStudents}
-               />
-               <SearchStudent
-                    inputEl={inputEl}
-                    studentsState={studentsState}
-                    setStudents={setStudents}
-               />
-
-               <Button btnType='success' clicked={() => setToggle(!toggle)}>
-                    تغییر وضعیت نمایش
-               </Button>
-
-               <Students
-                    studentsList={studentsState}
-                    toggle={toggle}
-                    deleted={deleteStudent}
-                    nameChange={nameChangeHandler}
-               />
-
-               <Button
-                    btnType='danger'
-                    clicked={() =>
-                         window.scrollTo(0, inputEl.current.offsetTop)
-                    }
-               >
-                    click to scroll
-               </Button>
-          </div>
+          <Router>
+               <div className='App'>
+                    <Toolbar />
+                    <Route path='/' exact component={HomePage} />
+                    <Route path='/add-student' exact component={AddStudent} />
+               </div>
+          </Router>
      );
 };
 

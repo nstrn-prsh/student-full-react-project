@@ -7,7 +7,16 @@ const MenuItems = () => {
                <MenuItem link='/' active>
                     صفحه اصلی
                </MenuItem>
-               <MenuItem link='/'>مشاهده دانش آموزان</MenuItem>
+               <MenuItem
+                    link={{
+                         pathname: "/add-student",
+                         search: "?sort-name",
+                         hash: "#the-hash",
+                         state: { fromDashboard: true },
+                    }}
+               >
+                    اضافه کردن دانش آموزان
+               </MenuItem>
           </ul>
      );
 };

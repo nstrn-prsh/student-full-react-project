@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./MenuItem.css";
 
 const MenuItem = (props) => {
@@ -6,9 +7,9 @@ const MenuItem = (props) => {
 
      return (
           <li className='MenuItem'>
-               <a href={props.link} className={classes}>
+               <Link to={props.link} className={classes}>
                     {props.children}
-               </a>
+               </Link>
           </li>
      );
 };

@@ -2,7 +2,8 @@ import classes from "./newStudent.module.css";
 import Button from "../../UI/button/Button";
 import WithClass from "../../hoc/WithClass";
 import { useState, memo } from "react";
-import { PropTypes } from 'prop-types';
+import { PropTypes } from "prop-types";
+import { withRouter } from "react-router";
 
 const NewStudent = ({ studentsState, setStudents }) => {
      const [studentName, setStudentName] = useState("");
@@ -64,11 +65,11 @@ const NewStudent = ({ studentsState, setStudents }) => {
      );
 };
 
-export default memo(WithClass(NewStudent, classes.NewPost));
+export default memo(withRouter(WithClass(NewStudent, classes.NewPost)));
 
-NewStudent.propTypes={
-     studentName:PropTypes.string,
-     studentClass:PropTypes.number,
-     studentPhoneNumber:PropTypes.number,
-     studentEmail:PropTypes.string,
-}
+NewStudent.propTypes = {
+     studentName: PropTypes.string,
+     studentClass: PropTypes.number,
+     studentPhoneNumber: PropTypes.number,
+     studentEmail: PropTypes.string,
+};
