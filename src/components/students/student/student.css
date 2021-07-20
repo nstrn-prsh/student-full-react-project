@@ -1,12 +1,10 @@
 .students {
      width: 80%;
      margin: 20px auto;
-     border: 1px solid #eedb2c93;
-     box-shadow: 0 2px 3px #474001b6;
-     background-color: #eedb2c93;
+     border: 1px solid #eee;
+     box-shadow: 0 2px 3px #ccc;
      text-align: center;
      padding-bottom: 20px;
-     border-radius: 30px;
 }
 .students label {
      display: block;
@@ -21,7 +19,6 @@
      border-radius: 5px;
      padding: 5px;
      direction: rtl;
-     background-color: #f8f8f88c;
 }
 input[type="number"],
 input[type="email"] {

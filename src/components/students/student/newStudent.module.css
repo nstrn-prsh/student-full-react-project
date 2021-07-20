@@ -1,12 +1,10 @@
 .NewPost {
      width: 80%;
      margin: 20px auto;
-     border: 1px solid #eedb2c93;
-     box-shadow: 0 2px 3px #474001b6;
-     background-color: #eedb2c93;
+     border: 1px solid #eee;
+     box-shadow: 0 2px 3px #ccc;
      text-align: center;
-     border-radius: 30px;
-     margin-top:65px;
+     margin-top: 65px;
 }
 
 .NewPost label {
@@ -17,15 +15,19 @@
 }
 
 .NewPost input {
-     background: transparent;
      display: block;
-     direction: rtl;
      width: 80%;
      box-sizing: border-box;
-     border: none;
-     border-bottom: 2px solid rgba(2, 129, 40, 0.767);
+     border: 1px solid #ccc;
      outline: none;
      font: inherit;
-     margin: 15px auto;
+     margin: auto;
+     border-radius: 5px;
      height: 35px;
+}
+
+.NewPost button:hover,
+.NewPost button:active {
+     color: white;
+     background-color: #fa3f58;
 }

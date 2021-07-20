@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, withRouter } from "react-router-dom";
 import NewStudent from "./NewStudent.jsx";
 
 const AddStudent = (props) => {
@@ -7,7 +7,8 @@ const AddStudent = (props) => {
      const [studentClass, setStudentClass] = useState("");
      const [studentPhoneNumber, setStudentPhoneNumber] = useState("");
      const [studentEmail, setStudentEmail] = useState("");
-     const [result, setResult] = useState(false);
+     // const [result, setResult] = useState(false);
+     const [error, setError] = useState(false);
 
      // useEffect(() => {
      //      console.log(props);
@@ -33,20 +34,47 @@ const AddStudent = (props) => {
      };
 
      const addStudent = () => {
-          alert("student added");
-          //props.history.push('/');
-          props.history.replace("/");
-          // setResult(true)
+          fetch("http://192.168.119.2/student/insertStudent.php", {
+               method: "POST",
+               headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json",
+               },
+               body: JSON.stringify({
+                    student_name: studentName,
+                    student_class: studentClass,
+                    student_phone_number: studentPhoneNumber,
+                    student_email: studentEmail,
+               }),
+          })
+               .then((response) => response.json())
+               .then((responseJson) => {
+                    props.history.replace("/");
+               })
+               .catch((error) => {
+                    setError(error);
+               });
      };
 
-     let redirect = null;
-     if (result) {
-          redirect = <Redirect to='/' />;
+     let ErrorMessage = null;
+     if (error) {
+          ErrorMessage = (
+               <h1 style={{ textAlign: "center", color: "red" }}>
+                    متاسفانه عملیات شما با شکست روبرو شد.لطفا مجددا تلاش کنید
+               </h1>
+          );
      }
+
+     // let redirect = null;
+     // if (result) {
+     //      redirect = <Redirect to='/' />;
+     // }
 
      return (
           <>
-               {redirect}
+               {/* {redirect} */}
+               {ErrorMessage}
+
                <NewStudent
                     studentName={studentName}
                     studentClass={studentClass}
@@ -62,4 +90,4 @@ const AddStudent = (props) => {
      );
 };
 
-export default AddStudent;
+export default withRouter(AddStudent);
