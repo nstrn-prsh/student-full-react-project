@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renderSnapshotHeader 1`] = `
+<DocumentFragment>
+  <header>
+    <h1
+      class="h1-class"
+      data-testid="h1tag"
+    >
+      hello
+    </h1>
+    <button
+      data-testid="ok-button"
+      disabled=""
+      type="submit"
+    >
+      ok
+    </button>
+  </header>
+</DocumentFragment>
+`;
