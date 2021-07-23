@@ -1,5 +1,6 @@
 {
-  "name": "student-full-react-project",
+  "name": "student-react-project",
+  "homepage": "https://reactapp.ir/my-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -15,9 +16,9 @@
     "web-vitals": "^1.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "razzle start",
+    "build": "razzle build",
+    "test": "razzle test --env=jsdom",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -43,6 +44,7 @@
     "@testing-library/react": "^12.0.0",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.3",
     "enzyme": "^3.11.0",
+    "express": "^4.17.1",
     "jest": "^26.6.0"
   }
 }

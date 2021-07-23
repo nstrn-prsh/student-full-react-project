@@ -12,7 +12,7 @@ const EditStudent = (props) => {
      const [message, setMessage] = useState("");
 
      const editStudent = () => {
-          fetch("http://192.168.119.2/student/updateStudent.php", {
+          fetch("http://webmarket.byethost18.com/student/updateStudent.php", {
                method: "POST",
                headers: {
                     Accept: "application/json",

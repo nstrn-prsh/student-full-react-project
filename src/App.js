@@ -2,10 +2,11 @@ import Toolbar from "./components/Header/Toolbar/Toolbar";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import HomePage from "./components/Homepage";
 import EditStudent from "./components/students/student/EditStudent";
-import { lazy, Suspense, useContext } from "react";
-import { ThemeContext } from "./context/themeContext";
+import { lazy, Suspense } from "react";
+import themeContextProvider from "./context/themeContext";
 import AuthContextProvider from "./context/authContext";
 import StudentsContextProvider from "./context/studentsContext";
+import Container from "./container";
 
 // new: react lazy load
 const AddStudent = lazy(() =>
@@ -14,21 +15,12 @@ const AddStudent = lazy(() =>
 
 const App = () => {
      // const [auth] = useState(true);
-     const themeContext = useContext(ThemeContext);
-     const { lightTheme, light, dark } = themeContext;
-     const theme = lightTheme ? light : dark;
-
      return (
-          <Router>
+          // <Router basename="/my-app/">
+          <themeContextProvider>
                <AuthContextProvider>
                     <StudentsContextProvider>
-                         <div
-                              className='App'
-                              style={{
-                                   background: theme.bg,
-                                   color: theme.syntax,
-                              }}
-                         >
+                         <Container>
                               <Toolbar />
                               <div style={{ marginTop: "70px" }}>
                                    <Switch>
@@ -69,10 +61,11 @@ const App = () => {
                                         />
                                    </Switch>
                               </div>
-                         </div>
+                         </Container>
                     </StudentsContextProvider>
                </AuthContextProvider>
-          </Router>
+          </themeContextProvider>
+          // </Router>
      );
 };
 

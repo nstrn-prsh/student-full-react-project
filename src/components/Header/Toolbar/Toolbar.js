@@ -44,7 +44,11 @@ const Toolbar = (props) => {
      };
 
      let auth = false;
-     const userInfo = JSON.parse(localStorage.getItem("user"));
+
+     let userInfo;
+     if (typeof window !== "undefined") {
+          userInfo = JSON.parse(localStorage.getItem("user"));
+     }
      if (userInfo) {
           auth = true;
      }

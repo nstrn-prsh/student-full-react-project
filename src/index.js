@@ -1,15 +1,26 @@
-import { render } from "react-dom";
-import "./index.css";
-import App from "./App";
-import axios from "axios";
-import ThemeContextProvider from "./context/themeContext";
+import http from "http";
+import { server } from "sinon";
 
-axios.defaults.baseURL = "https://jsonplaceholder.ir";
-axios.defaults.headers.post["Contetnt-Type"] = "application/json";
+let app = require("./server").default;
 
-render(
-     <ThemeContextProvider>
-          <App />
-     </ThemeContextProvider>,
-     document.getElementById("root")
-);
+let currentApp = app;
+
+server.listen(process.env.PORT || 3000, (error) => {
+     if (error) {
+          console.log(error);
+     }
+     console.log("started");
+});
+
+if (module.hot) {
+     console.log("HMR reloading `./server` ...");
+
+     try {
+          app = require("./server").default;
+          server.removeListener("request", currentApp);
+          server.on("request", app);
+          currentApp = app;
+     } catch (error) {
+          console.log(error);
+     }
+}

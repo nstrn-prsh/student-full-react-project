@@ -31,7 +31,7 @@ const HomePage = (props) => {
      useEffect(() => {
           inputEl.current.focus();
           setLoading(true);
-          fetch("http://192.168.119.2/student/showStudent.php")
+          fetch("http://webmarket.byethost18.com/student/showStudent.php")
                .then((response) => response.json())
                .then((responseJson) => {
                     setLoading(false);
@@ -47,7 +47,7 @@ const HomePage = (props) => {
           } else {
                alert("انجام شد");
           }
-          fetch("http://192.168.119.2/student/deleteStudent.php", {
+          fetch("http://webmarket.byethost18.com/student/deleteStudent.php", {
                method: "POST",
                headers: {
                     Accept: "application/json",

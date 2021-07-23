@@ -37,7 +37,7 @@ const AddStudent = (props) => {
      };
 
      const addStudent = () => {
-          fetch("http://192.168.119.2/student/insertStudent.php", {
+          fetch("http://webmarket.byethost18.com/student/insertStudent.php", {
                method: "POST",
                headers: {
                     Accept: "application/json",
