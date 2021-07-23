@@ -1,6 +1,7 @@
-import { useState } from "react";
-import { Redirect, withRouter } from "react-router-dom";
+import { useState, useContext,useEffect } from "react";
+import { withRouter } from "react-router-dom";
 import NewStudent from "./NewStudent.jsx";
+import { AuthContext } from "./../../../context/authContext";
 
 const AddStudent = (props) => {
      const [studentName, setStudentName] = useState("");
@@ -10,12 +11,14 @@ const AddStudent = (props) => {
      // const [result, setResult] = useState(false);
      const [error, setError] = useState(false);
 
-     // useEffect(() => {
-     //      console.log(props);
-     //      if (!auth) {
-     //           props.history.replace("/");
-     //      }
-     // });
+     const { authenticated } = useContext(AuthContext);
+
+     useEffect(() => {
+          console.log(props);
+          if (!authenticated) {
+               props.history.replace("/");
+          }
+     });
 
      const studentNameHandler = (event) => {
           setStudentName(event.target.value);

@@ -41,6 +41,12 @@ const HomePage = (props) => {
      }, [dispatch, studentsState]);
 
      const deleteStudent = (id) => {
+          if (!authenticated) {
+               alert("اجازه این عملیات را ندارید");
+               return false;
+          } else {
+               alert("انجام شد");
+          }
           fetch("http://192.168.119.2/student/deleteStudent.php", {
                method: "POST",
                headers: {
