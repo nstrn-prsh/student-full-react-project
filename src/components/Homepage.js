@@ -3,7 +3,7 @@ import Button from "../components/UI/button/Button";
 import Students from "./students/Students.jsx";
 import Spinner from "../components/UI/spinner/spinner";
 import ErrorHandler from "../components/hoc/ErrorHandler";
-import axios from "../axios";
+import axios from "../axiosApi";
 import { AuthContext } from "./../context/authContext";
 import { StudentsContext } from "./../context/studentsContext";
 

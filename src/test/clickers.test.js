@@ -17,11 +17,11 @@ describe("<Clickers/>", () => {
           expect(getByTestId("count")).toHaveTextContent("1");
      });
      // note: chon setTimeout darim pas bayad as async await estefade konim
-     it("decrement", () => {
+     it("decrement", async() => {
           const { getByTestId, getByText } = render(<Clickers />);
           fireEvent.click(getByText("down"));
           // new: time inja bayad bishtar bashe
           act(() => jest.advanceTimersByTime(510));
-          expect(getByTestId("count")).toHaveTextContent("-1");
+          expect(getByTestId("count")).toBe("-1");
      });
 });
